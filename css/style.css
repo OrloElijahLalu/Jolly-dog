@@ -1,41 +1,921 @@
+/* ==========================================================================
+   KANTO & CO. - STYLESHEET TEMPLATE
+   Empty selectors ready for styling. Do not rename classes/IDs used by cart.js.
+   Remove, modify and change at your discretion */
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL & REQUIRED JS STATES
+   -------------------------------------------------------------------------- */
 * {
-    box-sizing: border-box;
 }
 
 body {
+    background-color: #556B2F;
+ }
+
+/* REQUIRED: Keeps #confirmation-view hidden until cart.js reveals it on submit */
+[hidden] {
+    display: none !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. SHARED HEADER & FOOTER (index.html, menu.html, checkout.html)
+   -------------------------------------------------------------------------- */
+body {
     margin: 0;
-    background: "";
-    color: "";
-    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #3b2115;
+    color: white;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* LOGO CONTAINER */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* LOGO IMAGE */
+.logo img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+/* NAVIGATION */
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* NAVIGATION LINKS */
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+/* NAVIGATION HOVER */
+.navigation a:hover {
+    color: #e6a23c;
+}
+
+/* HEADER CART */
+.header-cart {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* CART LINK */
+.header-cart a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: #a65e27;
+    padding: 10px 18px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* CART HOVER */
+.header-cart a:hover {
+    background-color: #e6a23c;
+    color: #3b2115;
+}
+
+/* FOOTER */
+footer {
+    background-color: #3b2115;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+}
+
+/* FOOTER PARAGRAPH */
+footer p {
+    font-size: 14px;
+    color: #e5d5c5;
+    margin: 8px 0;
+}
+
+/* FOOTER LINKS */
+footer a {
+    color: #e6a23c;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .header-cart {
+        justify-content: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. HOME PAGE (index.html)
+   -------------------------------------------------------------------------- */
+/* ORDER INTRO */
+.order-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    background-color: #fffaf3;
+    gap: 30px;
+}
+
+/* INTRO TEXT */
+.intro-text {
+    max-width: 550px;
+}
+
+/* INTRO HEADING */
+.intro-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #3b2115;
+    margin-bottom: 20px;
+}
+
+/* INTRO PARAGRAPH */
+.intro-text p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* INTRO BUTTON CONTAINER */
+.intro-button {
+    margin-top: 20px;
+}
+
+/* INTRO BUTTON LINK */
+.intro-button a {
+    display: inline-block;
+    background-color: #a65e27;
+    color: white;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+.intro-button a:hover {
+    background-color: #e6a23c;
+    color: #3b2115;
+}
+
+/* BANNER */
+.banner {
+    width: 100%;
+    max-width: 550px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+/* BANNER IMAGE */
+.banner img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* MENU CATEGORIES */
+.menu-categories {
+    padding: 60px 50px;
+    background-color: #ffffff;
+}
+
+/* SECTION HEADING */
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* SECTION TITLE */
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #3b2115;
+    margin-bottom: 10px;
+}
+
+/* CATEGORY CONTAINER */
+.category-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* CATEGORY CARD */
+.category-card {
+    background-color: #fffaf3;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    transition: 0.3s;
+}
+
+/* CATEGORY CARD HOVER */
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* CATEGORY IMAGE */
+.category-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* CATEGORY TITLE */
+.category-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    color: #3b2115;
+    padding: 15px;
+    margin: 0;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media screen and (max-width: 768px) {
+
+    .order-intro {
+        flex-direction: column;
+        padding: 35px 20px;
+        text-align: center;
+    }
+
+    .intro-text h1 {
+        font-size: 34px;
+    }
+
+    .banner {
+        max-width: 100%;
+    }
+
+    .banner img {
+        height: 250px;
+    }
+
+    .menu-categories {
+        padding: 40px 20px;
+    }
+
+    .category-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .category-container {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-text h1 {
+        font-size: 29px;
+    }
+}
+
+
+/* ==========================================
+   4. MENU PAGE LAYOUT & CATEGORIES
+   ========================================== */
+
+/* MAIN MENU LAYOUT */
+.menu-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 30px;
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 30px;
+    align-items: start;
+}
+
+/* LEFT MENU SECTION */
+.menu-section {
+    width: 100%;
+    min-width: 0;
+}
+
+/* MENU HEADING */
+.menu-heading {
+    margin-bottom: 25px;
+}
+
+/* MENU TITLE */
+.menu-heading h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #fffaf3;
+    margin-bottom: 10px;
+}
+
+/* MENU DESCRIPTION */
+.menu-heading p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #fffaf3;
+    line-height: 1.7;
+}
+
+/* PICKUP NOTICE BANNER */
+#pickup,
+.pickup-info {
+    background-color: #fff0d9;
+    border-left: 5px solid #a65e27;
+    padding: 18px 22px;
+    margin: 25px 0;
+    border-radius: 8px;
+}
+
+/* PICKUP HEADING */
+.pickup-info h3 {
+    font-family: 'Playfair Display', serif;
+    color: #3b2115;
+    font-size: 20px;
+    margin: 0 0 8px;
+}
+
+/* PICKUP DESCRIPTION */
+.pickup-info p {
+    font-family: 'Poppins', sans-serif;
+    color: #666;
+    font-size: 14px;
+    margin: 0;
     line-height: 1.6;
 }
 
-h1,
-h2,
-h3,
-p {
-    margin: 0;
+/* CATEGORY NAVIGATION */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5d5c5;
 }
 
-h1,
-h2,
-h3 {
-    line-height: 1.2;
+/* CATEGORY LINKS */
+.categories a {
+    text-decoration: none;
+    color: #3b2115;
+    background-color: #f3e7d8;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-img {
+/* CATEGORY HOVER */
+.categories a:hover {
+    background-color: #a65e27;
+    color: white;
+}
+
+/* INDIVIDUAL FOOD CATEGORY */
+.food-category {
+    margin: 40px 0;
+    scroll-margin-top: 30px;
+}
+
+/* FOOD CATEGORY HEADING */
+.food-category h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: #fffaf3;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e6a23c;
+    padding-bottom: 10px;
+}
+
+/* FOOD GRID CONTAINER */
+.food-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* INDIVIDUAL FOOD CARD */
+.food-card {
+    background-color: #fffaf3;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    transition: 0.3s;
+    padding-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* FOOD CARD HOVER */
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* DEFAULT IMAGES (Foods & Side Dishes) */
+.food-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
     display: block;
-    max-width: 100%;
 }
 
-a {
-    color: "";
-    text-decoration: "";
+/* DRINKS IMAGES */
+#drinks .food-card img {
+   width: 100%;
+    height: 450px;
+    object-fit:cover;
+    display: block;
 }
 
-button {
-    font: inherit;
+/* DESSERTS IMAGES */
+#desserts .food-card img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+/* FOOD NAME */
+.food-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    color: #3b2115;
+    margin: 15px 18px 8px;
+}
+
+/* FOOD DESCRIPTION */
+.food-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #777;
+    line-height: 1.6;
+    margin: 8px 18px;
+}
+
+/* FOOD PRICE */
+.food-card .price {
+    display: block;
+    color: #a65e27;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 15px 18px;
+}
+
+/* ADD TO CART BUTTON */
+.food-card button {
+    display: block;
+    width: calc(100% - 36px);
+    margin: auto 18px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #a65e27;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
+    transition: 0.3s;
 }
 
+/* BUTTON HOVER */
+.food-card button:hover {
+    background-color: #e6a23c;
+    color: #3b2115;
+}
 
+/* STICKY CART - RIGHT COLUMN */
+.menu-layout > :last-child {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media screen and (max-width: 900px) {
+
+    .menu-layout {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .menu-layout > :last-child {
+        position: static;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .menu-heading h1 {
+        font-size: 30px;
+    }
+
+    .food-category h2 {
+        font-size: 25px;
+    }
+
+    .food-container {
+        grid-template-columns: 1fr;
+    }
+
+    .categories {
+        gap: 8px;
+    }
+
+    .categories a {
+        font-size: 12px;
+        padding: 9px 14px;
+    }
+
+    .food-card img {
+        height: 220px;
+    }
+
+}
+
+/* --------------------------------------------------------------------------
+   5. RIGHT-SIDE SHOPPING CART & JS-GENERATED ITEMS (menu.html + cart.js)
+   -------------------------------------------------------------------------- */
+/* Right-side cart panel (make sticky so it stays visible while scrolling) */
+#cart,
+.cart-section {
+	background: white; /* puti yung box ng cart */
+    border: 1px solid #EDE8D6; /* border na manipis */
+    border-radius: 15px; /* kinayod na kanto yan LMFAOAOOO */
+    padding: 18px; /* space sa loob para may luwag pa rin sa gilid */
+    position: sticky; top: 20px; /* para sumama yung cart sa kanan habang nag i-scroll */
+}
+.cart-section h2 {
+	margin-bottom: 12px; /* space sa baba ng title */
+}
+/* Container where cart.js injects added items */
+.cart-items {
+	display: flex; flex-direction: column; /* up and down yung mga items, hindi side to side */
+	gap: 10px; /* pagitan ng mga items */
+}
+/* Shown by cart.js when no items are in the cart */
+.empty-cart-msg {
+	background: #FAF6EE; /* kulay yan malamang */
+    padding: 14px; /* space sa loob alam niyo na yan */
+    border-radius: 10px; /* kinayod ulit */
+    text-align: center; /* para gumitna */
+    color: #888; /* oh color daw, ano ba yan */
+    font-size: 14px; /* SIZEEEEE */
+}
+/* CREATED BY cart.js: Wrapper for each dish row inside .cart-items */
+.cart-item {
+	display: flex; justify-content: space-between; align-items: center; /* pangalan sa kaliwa, presyo sa kanan, pantay sa gitna */
+    gap: 10px; /* gap... yawa */
+    background: #FAF6EE; /* oh... ano... */
+    padding: 10px; /* space */
+    border-radius: 10px; /* KANTO NGAAA, ANO BA */
+}
+/* CREATED BY cart.js: Holds dish title (h4) and unit price (p) */
+.cart-item-info {
+	flex: 1; /* sasakop ng space para mapunta sa kanan yung presyo */
+}
+.cart-item-info h4 {
+	font-size: 15px; /* jusq */
+}
+.cart-item-info p {
+	color: #556B2F; 
+	font-weight: bold; /* pampakapal */
+	font-size: 14px;
+}
+/* CREATED BY cart.js: Holds -, quantity span, and + buttons */
+.quantity-controls {
+	display: flex; align-items: center; gap: 8px; /* para pantay yung plus minus 1 na yun */
+}
+.minus-btn,
+.plus-btn {
+	background: #556B2F;
+	color: white;
+}
+.quantity-controls span {
+	font-weight: bold;
+}
+/* CREATED BY cart.js: Subtotal price for that specific item row */
+.item-total {
+	font-weight: bold;
+}
+/* Subtotal and Total section (updated live by cart.js) */
+.cart-summary {
+	border-top: 1px solid #EDE8D6; /* line sa taas para mahiwalay sa mga items */
+	margin-top: 14px; /* space sa taas */
+	padding-top: 12px; /* space sa loob ng anes tas taas nun basta yun */
+}
+.cart-summary p {
+	display: flex; justify-content: space-between; /* para mag kaliwa't kanan yung anes */
+	margin-bottom: 5px; /* space sa baba */
+}
+.cart-summary span {
+	font-weight: bold;
+}
+/* CLEAR CART button (wired by cart.js) */
+.cart-section > button {
+	width: 100%; /* lapad ng cart */
+    margin-top: 12px;
+    background: white;
+    color: #B00020;
+    border: 1px solid #B00020;
+    padding: 10px;
+    border-radius: 10px;
+}
+/* PROCEED TO CHECKOUT link/button (blocked by cart.js if cart is empty) */
+.cart-section a {
+	display: block; /* para maging isang buo */
+	text-align: center;
+    margin-top: 10px;
+    background: #556B2F;
+    color: white;
+    padding: 13px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+/* --------------------------------------------------------------------------
+   6. CHECKOUT PAGE - GUEST FORM VIEW (checkout.html + cart.js)
+   -------------------------------------------------------------------------- */
+.checkout-layout {
+	max-width: 900px; margin: 0 auto; /* para may limit or hindi na sumobra yung lapad, para na rin gumitna sa page */
+	padding: 25px 5% 50px; /* kaya yan tatlo kasi magkakaiba yung space sa bawat side */
+}
+/* Container for the form view (hidden by cart.js after form submission) */
+#checkout-view,
+.checkout-section {
+	background: white;
+    border-radius: 15px;
+    padding: 22px;
+    border: 1px solid #EDE8D6;
+}
+.checkout-heading {
+	margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #EDE8D6; /* para humiwalay sa form section thingy */
+}
+.checkout-heading h1 {
+	font-size: 29px;
+}
+.checkout-heading p {
+	color: #777;
+	margin: 6px 0 20px; /* same lng din sa padding kung bakt tatlo yun */
+}
+#checkout-form,
+.checkout-form {
+	display: flex; flex-direction: column; /* up and down yung form */
+	gap: 18px; /* pagitan nila */
+}
+/* Form sections: Contact Details, Pickup Store, Pickup Time, Order Summary */
+.form-group {
+	background: #FAF6EE;
+	padding: 15px;
+	border-radius: 12px;
+}
+.form-group h2 {
+	font-size: 17px;
+	margin-bottom: 10px;
+}
+.form-group label {
+	display: block; /* para nasa taas yung label, hindi katabi */
+	font-weight: bold;
+	font-size: 14px;
+	margin: 10px 0 5px;
+}
+.form-group input,
+.form-group select {
+	width: 100%;
+    padding: 11px;
+    border-radius: 10px;
+    border: 1px solid #CCC;
+    font-size: 16px;
+}
+/* Kailangan nito mga boy */
+.form-group input:focus,
+.form-group select:focus {
+	border-color: #556B2F; outline: none; /* para magkaroon ng kulay kung saan nag ty-type yung oat */
+}
+.form-group p {
+	color: #888;
+	font-size: 14px;
+	margin-top: 5px;
+}
+/* Header row inside Order Summary holding h2 and ADD MORE button */
+.summary-header {
+	display: flex; justify-content: space-between; align-items: center; /* pampantay ulit */
+}
+.add-more-btn {
+	background: white;
+    border: 1px solid #556B2F;
+    color: #556B2F;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+/* Container where cart.js populates the checkout item list */
+#checkout-items,
+.checkout-items {
+	display: flex; flex-direction: column; /* up and down na listahan ng order */
+}
+/* CREATED BY cart.js: Individual item row inside #checkout-items */
+.summary-item {
+	display: flex; justify-content: space-between; /* same lng din nung nasa taas kanina, pangalan sa kaliwa, presyo sa kanan */
+    padding: 10px 0;
+    border-bottom: 1px solid #EDE8D6;
+}
+.summary-item span {
+	font-weight: bold;
+}
+/* Total amount due section (updated by cart.js) */
+#checkout-totals,
+.checkout-totals {
+    background: #556B2F;
+    color: #ffffff;
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#checkout-total-price {
+	font-size: 21px;
+	font-weight: bold;
+}
+
+#checkout-totals p {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+/* CONFIRM ORDER submit button (disabled by cart.js if cart is empty) */
+.confirm-btn {
+	background: #556B2F;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.confirm-btn:disabled {
+	background: #CCC;
+	color: #888;
+}
+/* --------------------------------------------------------------------------
+   7. CHECKOUT PAGE - ORDER CONFIRMATION VIEW (checkout.html + cart.js)
+   -------------------------------------------------------------------------- */
+/* Receipt container (starts hidden, shown by cart.js on submit) */
+#confirmation-view,
+.confirmation-section {
+	background: white;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid #EDE8D6;
+    max-width: 600px; margin: 0 auto; /* same sa kanina, limit ng lapad tsaka para gumitna */
+}
+.confirmation-heading {
+	text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #EDE8D6;
+}
+.confirmation-heading h1 {
+	font-size: 30px;
+}
+#confirm-name {
+	color: #556B2F;
+}
+/* Highlighted box showing the generated order reference number */
+.order-reference-box {
+	background: #EDE8D6;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 15px 0; /* pag dalawa naman, up and down yung una, side to side yung pangalawa */
+}
+.order-reference-box span {
+	display: block;
+	font-size: 13px;	
+	color: #777;
+}
+#confirm-ref {
+	font-size: 26px;
+	font-weight: bold;
+	color: #556B2F;
+}
+/* Pickup & payment summary box */
+.confirmation-details {
+	background: #FAF6EE;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: left;
+}
+.confirmation-details h3 {
+	color: #556B2F;
+    font-size: 18px;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #EDE8D6;
+}
+.confirmation-details p {
+	margin: 4px 0;
+	color: #4a453c;
+}
+#confirm-time,
+#confirm-total {
+	font-weight: bold;
+	color: #2D2A22;
+}
+.pickup-note {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #556B2F;
+	font-weight: bold;
+	text-align: center;
+}
+/* Bottom buttons (ORDER AGAIN & BACK TO HOME) */
+.confirmation-actions {
+	display: flex; gap: 10px; margin-top: 18px; /* yung dalawang magkatabi na buttons sa baba */
+}
+/* Dagdagednt */
+.order-again-btn, .home-btn {
+    flex: 1; /* same sila ng laki or hati ng space */
+    padding: 13px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.order-again-btn {
+	background: #556B2F;
+	color: white;
+	border: none;
+}
+.home-btn {
+	background: white;
+	border: 1px solid #556B2F;
+	color: #556B2F;
+}

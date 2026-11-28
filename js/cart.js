@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 formatPrice(total);
 
             document.getElementById("confirm-ref").textContent =
-                "JD-" + Math.floor(10000 + Math.random() * 90000);
+                "KC-" + Math.floor(10000 + Math.random() * 90000);
 
             localStorage.removeItem("cart");
 
