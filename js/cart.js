@@ -21,17 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const clearCartBtn = document.querySelector(".cart-section button");
         const checkoutLink = document.querySelector(".cart-section a[href='checkout.html']");
 
-        function updateTotals() {
+       function updateTotals() {
+    const subtotal = cart.reduce(function (sum, item) {
+        return sum + item.price * item.quantity;
+    }, 0);
 
-            const subtotal = cart.reduce(function (sum, item) {
-                return sum + item.price * item.quantity;
-            }, 0);
+    const spans = cartSummary.querySelectorAll("p span");
 
-            const spans = cartSummary.querySelectorAll("p span");
-
-            spans[0].textContent = formatPrice(subtotal);
-            spans[1].textContent = formatPrice(subtotal);
-        }
+    if (spans[0]) spans[0].textContent = formatPrice(subtotal);
+    if (spans[1]) spans[1].textContent = formatPrice(subtotal);
+}
 
         function renderCart() {
 

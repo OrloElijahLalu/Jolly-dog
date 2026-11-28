@@ -7,6 +7,7 @@
    1. GLOBAL & REQUIRED JS STATES
    -------------------------------------------------------------------------- */
 * {
+    box-sizing: border-box;
 }
 
 body {
@@ -751,16 +752,21 @@ footer a:hover {
     border: 1px solid #CCC;
     font-size: 16px;
 }
+
 /* Kailangan nito mga boy */
 .form-group input:focus,
 .form-group select:focus {
 	border-color: #556B2F; outline: none; /* para magkaroon ng kulay kung saan nag ty-type yung oat */
 }
+
 .form-group p {
-	color: #888;
-	font-size: 14px;
-	margin-top: 5px;
+    color: #3b2115;
+    font-size: 15px;
+    margin-top: 8px;
+    line-height: 1.5;
 }
+
+
 /* Header row inside Order Summary holding h2 and ADD MORE button */
 .summary-header {
 	display: flex; justify-content: space-between; align-items: center; /* pampantay ulit */
@@ -891,13 +897,16 @@ footer a:hover {
 	font-weight: bold;
 	color: #2D2A22;
 }
-.pickup-note {
-	margin-top: 10px;
-	font-size: 14px;
-	color: #556B2F;
-	font-weight: bold;
-	text-align: center;
+.confirmation-details .pickup-note {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px dashed #d5ccb8;
+    font-size: 14px;
+    color: #556B2F;
+    font-weight: 600;
+    text-align: center;
 }
+
 /* Bottom buttons (ORDER AGAIN & BACK TO HOME) */
 .confirmation-actions {
 	display: flex; gap: 10px; margin-top: 18px; /* yung dalawang magkatabi na buttons sa baba */
