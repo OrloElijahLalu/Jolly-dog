@@ -1,0 +1,365 @@
+/* ==========================================================================
+   KANTO & CO. - STYLESHEET TEMPLATE
+   Empty selectors ready for styling. Do not rename classes/IDs used by cart.js.
+   Remove, modify and change at your discretion */
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL & REQUIRED JS STATES
+   -------------------------------------------------------------------------- */
+* {
+}
+
+body {
+}
+
+/* REQUIRED: Keeps #confirmation-view hidden until cart.js reveals it on submit */
+[hidden] {
+    display: none !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. SHARED HEADER & FOOTER (index.html, menu.html, checkout.html)
+   -------------------------------------------------------------------------- */
+.header {
+}
+
+.logo {
+}
+
+.logo img {
+}
+
+.navigation {
+}
+
+.navigation a {
+}
+
+.header-cart {
+}
+
+.header-cart a {
+}
+
+.footer {
+}
+
+.footer p {
+}
+
+
+/* --------------------------------------------------------------------------
+   3. HOME PAGE (index.html)
+   -------------------------------------------------------------------------- */
+.order-intro {
+}
+
+.intro-text {
+}
+
+.intro-text h1 {
+}
+
+.intro-text p {
+}
+
+.intro-button {
+}
+
+.intro-button a {
+}
+
+.banner {
+}
+
+.banner img {
+}
+
+.menu-categories {
+}
+
+.section-heading {
+}
+
+.section-heading h2 {
+}
+
+.category-container {
+}
+
+.category-card {
+}
+
+.category-card img {
+}
+
+.category-card h3 {
+}
+
+
+/* --------------------------------------------------------------------------
+   4. MENU PAGE LAYOUT & CATEGORIES (menu.html)
+   -------------------------------------------------------------------------- */
+/* Main two-column wrapper: menu on left, sticky cart on right */
+.menu-layout {
+}
+
+/* Left column containing menu header, pickup banner, and food grids */
+.menu-section {
+}
+
+.menu-heading {
+}
+
+.menu-heading h1 {
+}
+
+.menu-heading p {
+}
+
+/* Pickup-only notice banner */
+#pickup,
+.pickup-info {
+}
+
+.pickup-info h3 {
+}
+
+.pickup-info p {
+}
+
+/* Category jump-link bar (FOODS, DRINKS, SIDE DISHES, DESSERTS) */
+.categories {
+}
+
+.categories a {
+}
+
+/* Individual category sections (#foods, #drinks, #sides, #desserts) */
+.food-category {
+}
+
+.food-category h2 {
+}
+
+/* Grid/flex container holding the dish cards */
+.food-container {
+}
+
+/* Individual dish card (cart.js reads h3, .price, and listens to button) */
+.food-card {
+}
+
+.food-card img {
+}
+
+.food-card h3 {
+}
+
+.food-card p {
+}
+
+.food-card .price {
+}
+
+.food-card button {
+}
+
+
+/* --------------------------------------------------------------------------
+   5. RIGHT-SIDE SHOPPING CART & JS-GENERATED ITEMS (menu.html + cart.js)
+   -------------------------------------------------------------------------- */
+/* Right-side cart panel (make sticky so it stays visible while scrolling) */
+#cart,
+.cart-section {
+}
+
+.cart-section h2 {
+}
+
+/* Container where cart.js injects added items */
+.cart-items {
+}
+
+/* Shown by cart.js when no items are in the cart */
+.empty-cart-msg {
+}
+
+/* CREATED BY cart.js: Wrapper for each dish row inside .cart-items */
+.cart-item {
+}
+
+/* CREATED BY cart.js: Holds dish title (h4) and unit price (p) */
+.cart-item-info {
+}
+
+.cart-item-info h4 {
+}
+
+.cart-item-info p {
+}
+
+/* CREATED BY cart.js: Holds -, quantity span, and + buttons */
+.quantity-controls {
+}
+
+.minus-btn,
+.plus-btn {
+}
+
+.quantity-controls span {
+}
+
+/* CREATED BY cart.js: Subtotal price for that specific item row */
+.item-total {
+}
+
+/* Subtotal and Total section (updated live by cart.js) */
+.cart-summary {
+}
+
+.cart-summary p {
+}
+
+.cart-summary span {
+}
+
+/* CLEAR CART button (wired by cart.js) */
+.cart-section > button {
+}
+
+/* PROCEED TO CHECKOUT link/button (blocked by cart.js if cart is empty) */
+.cart-section a {
+}
+
+
+/* --------------------------------------------------------------------------
+   6. CHECKOUT PAGE - GUEST FORM VIEW (checkout.html + cart.js)
+   -------------------------------------------------------------------------- */
+.checkout-layout {
+}
+
+/* Container for the form view (hidden by cart.js after form submission) */
+#checkout-view,
+.checkout-section {
+}
+
+.checkout-heading {
+}
+
+.checkout-heading h1 {
+}
+
+.checkout-heading p {
+}
+
+#checkout-form,
+.checkout-form {
+}
+
+/* Form sections: Contact Details, Pickup Store, Pickup Time, Order Summary */
+.form-group {
+}
+
+.form-group h2 {
+}
+
+.form-group label {
+}
+
+.form-group input,
+.form-group select {
+}
+
+.form-group p {
+}
+
+/* Header row inside Order Summary holding h2 and ADD MORE button */
+.summary-header {
+}
+
+.add-more-btn {
+}
+
+/* Container where cart.js populates the checkout item list */
+#checkout-items,
+.checkout-items {
+}
+
+/* CREATED BY cart.js: Individual item row inside #checkout-items */
+.summary-item {
+}
+
+.summary-item span {
+}
+
+/* Total amount due section (updated by cart.js) */
+#checkout-totals,
+.checkout-totals {
+}
+
+#checkout-total-price {
+}
+
+/* CONFIRM ORDER submit button (disabled by cart.js if cart is empty) */
+.confirm-btn {
+}
+
+.confirm-btn:disabled {
+}
+
+
+/* --------------------------------------------------------------------------
+   7. CHECKOUT PAGE - ORDER CONFIRMATION VIEW (checkout.html + cart.js)
+   -------------------------------------------------------------------------- */
+/* Receipt container (starts hidden, shown by cart.js on submit) */
+#confirmation-view,
+.confirmation-section {
+}
+
+.confirmation-heading {
+}
+
+.confirmation-heading h1 {
+}
+
+#confirm-name {
+}
+
+/* Highlighted box showing the generated order reference number */
+.order-reference-box {
+}
+
+.order-reference-box span {
+}
+
+#confirm-ref {
+}
+
+/* Pickup & payment summary box */
+.confirmation-details {
+}
+
+.confirmation-details h3 {
+}
+
+.confirmation-details p {
+}
+
+#confirm-time,
+#confirm-total {
+}
+
+.pickup-note {
+}
+
+/* Bottom buttons (ORDER AGAIN & BACK TO HOME) */
+.confirmation-actions {
+}
+
+.order-again-btn {
+}
+
+.home-btn {
+}
